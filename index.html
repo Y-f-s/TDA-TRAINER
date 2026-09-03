@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pendaftaran TDA Trainer Jakarta Selatan & Asisten AI Interaktif." />
+  <meta name="theme-color" content="#020617" />
+  <title>TDA Trainer Jakarta Selatan — Asisten AI & Pendaftaran</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --gold: #f59e0b;
+      --gold-soft: #fbbf24;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(245,158,11,.10), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(16,185,129,.08), transparent 26%),
+        #020617;
+    }
+    .glass {
+      background: rgba(15,23,42,.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #fbbf24, #fde68a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .soft-grid {
+      background-image:
+        linear-gradient(rgba(148,163,184,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,.055) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(to bottom, black, transparent 92%);
+    }
+    .focus-ring:focus {
+      outline: none;
+      border-color: rgba(245,158,11,.85);
+      box-shadow: 0 0 0 4px rgba(245,158,11,.12);
+    }
+    .ai-glow {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(245,158,11,.12), transparent 34%),
+        radial-gradient(circle at 85% 20%, rgba(59,130,246,.10), transparent 32%),
+        linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.96));
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-slate-100 selection:bg-amber-400 selection:text-slate-950">
+  <div class="fixed inset-0 -z-10 soft-grid pointer-events-none"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-slate-800/80 glass">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+      <a href="#top" class="flex items-center gap-3" aria-label="TDA Trainer Jakarta Selatan">
+        <div class="grid h-10 w-10 place-items-center rounded-xl bg-amber-400 font-extrabold text-slate-950 shadow-lg shadow-amber-400/20">
+          TDA
+        </div>
+        <div>
+          <div class="text-sm font-extrabold tracking-tight text-white">Jakarta Selatan</div>
+          <div class="text-[10px] font-bold uppercase tracking-[.22em] text-amber-400">Let's Go Together</div>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm text-slate-300 md:flex" aria-label="Navigasi utama">
+        <a class="transition hover:text-white" href="#tentang">Tentang</a>
+        <a class="transition hover:text-white" href="#benefit">Benefit</a>
+        <a class="transition hover:text-white" href="#ai-training">Tanya AI</a>
+        <a class="transition hover:text-white" href="#daftar">Pendaftaran</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a
+          href="https://chat.whatsapp.com/HhUvmYJGL0QCdaxYbMsbrz?s=cl&p=a&mlu=4"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-xs font-bold text-emerald-300 transition hover:bg-emerald-500/20 sm:inline-flex"
+        >Gabung WAG</a>
+        <a
+          href="#daftar"
+          class="rounded-xl bg-amber-400 px-4 py-2.5 text-xs font-extrabold text-slate-950 shadow-lg shadow-amber-400/15 transition hover:bg-amber-300"
+        >Daftar Trainer</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SLIDER -->
+    <section class="relative mx-auto max-w-7xl px-5 pt-10 lg:px-8">
+      <div class="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl min-h-[440px] flex items-center">
+        
+        <!-- SLIDE 1 -->
+        <div class="slide active absolute inset-0 grid grid-cols-1 lg:grid-cols-12 items-center p-8 sm:p-12 lg:p-16 gap-8">
+          <div class="lg:col-span-7 space-y-6 z-10">
+            <span class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3.5 py-1.5 text-xs font-bold text-amber-300">
+              <span class="h-2 w-2 animate-pulse rounded-full bg-amber-300"></span>
+              Peluang Eksklusif TDA Trainer Q1 2026
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Saatnya Ilmu Menjadi <span class="gradient-text">Dampak Nyata.</span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              Bagikan pengalaman, studi kasus, dan keahlian terbaik Anda bersama ekosistem pengusaha profesional di Jakarta Selatan.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="#daftar" class="rounded-xl bg-amber-400 px-6 py-3.5 text-xs font-extrabold text-slate-950 shadow-lg shadow-amber-400/20 transition hover:bg-amber-300">
+                Daftar Jadi Trainer 🚀
+              </a>
+              <a href="#ai-training" class="rounded-xl border border-slate-700 bg-slate-800/80 px-6 py-3.5 text-xs font-bold text-white transition hover:bg-slate-800">
+                Tanya Asisten AI 🤖
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-5 relative h-64 lg:h-full min-h-[260px] rounded-2xl overflow-hidden shadow-inner">
+            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000&auto=format&fit=crop" alt="Training" class="absolute inset-0 w-full h-full object-cover filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide absolute inset-0 grid grid-cols-1 lg:grid-cols-12 items-center p-8 sm:p-12 lg:p-16 gap-8">
+          <div class="lg:col-span-7 space-y-6 z-10">
+            <span class="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1.5 text-xs font-bold text-emerald-300">
+              Network & Collaboration
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Perluas Jejaring <span class="text-emerald-400">Bisnis & Mentor</span> Lintas Sektor.
+            </h1>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl">
+              Terhubung langsung dengan ribuan pengusaha aktif. Bangun personal branding Anda sebagai expert tepercaya.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="#daftar" class="rounded-xl bg-emerald-500 px-6 py-3.5 text-xs font-extrabold text-slate-950 shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400">
+                Daftar Sekarang ✨
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-5 relative h-64 lg:h-full min-h-[260px] rounded-2xl overflow-hidden shadow-inner">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1000&auto=format&fit=crop" alt="Networking" class="absolute inset-0 w-full h-full object-cover filter brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- SLIDER DOTS -->
+        <div class="absolute bottom-4 right-6 z-20 flex items-center gap-2">
+          <button onclick="currentSlide(0)" class="dot w-3 h-3 rounded-full bg-amber-400 transition-all"></button>
+          <button onclick="currentSlide(1)" class="dot w-3 h-3 rounded-full bg-slate-600 transition-all"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG & BENEFITS -->
+    <section id="tentang" class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-[.2em] text-amber-400">Tentang Program</span>
+          <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            Bukan Sekadar Mengajar. Saatnya Keahlian Anda Memberi Dampak.
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            TDA Trainer adalah ruang kolaborasi bagi praktisi, pengusaha, dan subject-matter expert untuk berbagi pengalaman nyata dan memperluas jejaring.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FITUR CHAT ASISTEN AI (MENGGUNAKAN NETLIFY FUNCTIONS) -->
+    <section id="ai-training" class="border-y border-slate-900/80 bg-slate-950/40 py-16 lg:py-20">
+      <div class="mx-auto max-w-3xl px-5 lg:px-8">
+        <div class="text-center mb-10">
+          <span class="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1.5 text-xs font-bold text-sky-300 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Asisten Virtual TDA Jaksel
+          </span>
+          <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Tanya Jawab Langsung dengan AI</h2>
+          <p class="mt-2 text-sm text-slate-400">Silakan tanyakan apa saja seputar program TDA Trainer, jadwal, atau konsultasi bisnis.</p>
+        </div>
+
+        <!-- CONTAINER CHAT BOX -->
+        <div class="ai-glow rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col h-[500px]">
+          
+          <!-- Header Chat -->
+          <div class="bg-slate-900/90 border-b border-slate-800 p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+              <div>
+                <div class="text-xs font-bold text-white">TDA Assistant (Groq Llama 3)</div>
+                <div class="text-[10px] text-slate-400">Online & Siap Membantu</div>
+              </div>
+            </div>
+            <button id="clearChatBtn" type="button" class="text-[11px] font-semibold text-slate-400 hover:text-white transition">Bersihkan Chat</button>
+          </div>
+
+          <!-- Ruang Riwayat Percakapan (Scrollable) -->
+          <div id="chatContainer" class="flex-1 overflow-y-auto p-5 space-y-4 text-sm leading-relaxed">
+            <!-- Pesan Sambutan Awal dari AI -->
+            <div class="flex items-start gap-3">
+              <div class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-amber-400 text-slate-950 font-bold text-xs">AI</div>
+              <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 text-slate-200 max-w-[85%]">
+                Halo! Ada yang bisa saya bantu seputar pendaftaran atau kegiatan TDA Trainer Jakarta Selatan?
+              </div>
+            </div>
+          </div>
+
+          <!-- Input Bar Pengguna -->
+          <div class="border-t border-slate-800 bg-slate-900/90 p-4">
+            <form id="chatForm" class="flex items-center gap-3">
+              <input 
+                id="chatInput" 
+                type="text" 
+                autocomplete="off"
+                placeholder="Ketik pertanyaan Anda di sini..." 
+                class="focus-ring flex-1 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-600"
+              />
+              <button 
+                id="chatSendBtn" 
+                type="submit" 
+                class="rounded-xl bg-amber-400 px-5 py-3 text-xs font-extrabold text-slate-950 transition hover:bg-amber-300 disabled:opacity-50"
+              >
+                Kirim →
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION FORM (TETAP KE GOOGLE SHEETS) -->
+    <section id="daftar" class="mx-auto max-w-4xl px-5 py-16 lg:px-8 lg:py-24">
+      <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl shadow-black/30 sm:p-10">
+        <div class="text-center">
+          <span class="text-xs font-bold uppercase tracking-[.2em] text-amber-400">Pendaftaran</span>
+          <h2 class="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Mari bergabung bersama TDA Trainer.</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400">
+            Isi data di bawah ini untuk dikirim ke Google Sheets & Google Drive panitia.
+          </p>
+        </div>
+
+        <form id="trainerForm" class="mt-10 space-y-6" novalidate>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="nama" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">Nama Lengkap *</label>
+              <input id="nama" name="nama" type="text" required value="Yansyah" class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white" />
+            </div>
+            <div>
+              <label for="nowa" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp Aktif *</label>
+              <input id="nowa" name="nowa" type="tel" required value="087853378167" class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white" />
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="statusTda" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">Status Keanggotaan *</label>
+              <select id="statusTda" name="statusTda" required class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white">
+                <option selected>Sudah Anggota TDA</option>
+                <option>Belum Anggota / Eksternal</option>
+              </select>
+            </div>
+            <div>
+              <label for="materi" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">Bidang Keahlian *</label>
+              <select id="materi" name="materi" required class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white">
+                <option selected>Kewirausahaan & Strategi Bisnis</option>
+                <option>Digital Marketing & Sales</option>
+                <option>Teknologi, AI & Digitalisasi</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="topik" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">Topik yang Bisa Dibawakan</label>
+            <textarea id="topik" name="topik" rows="3" class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white">Manajemen Proyek & Otomasi Teknologi</textarea>
+          </div>
+
+          <div>
+            <label for="cv" class="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-400">CV / Profile Trainer (PDF) *</label>
+            <input id="cv" name="cv" type="file" accept=".pdf" required class="w-full cursor-pointer rounded-xl border border-slate-800 bg-slate-950 p-3 text-xs text-slate-400 file:mr-4 file:rounded-lg file:border-0 file:bg-amber-400 file:px-4 file:py-2.5 file:text-xs file:font-extrabold file:text-slate-950" />
+            <p id="fileHint" class="mt-2 text-xs text-slate-500">Maksimal 10 MB. Format PDF.</p>
+          </div>
+
+          <div id="formMessage" class="hidden rounded-xl border px-4 py-3 text-sm"></div>
+
+          <button type="submit" class="w-full rounded-2xl bg-amber-400 py-4 text-sm font-extrabold text-slate-950 shadow-xl shadow-amber-400/15 transition hover:bg-amber-300">
+            Kirim Pendaftaran & Simpan ke Sheets →
+          </button>
+
+          <div class="text-center pt-2">
+            <a href="https://chat.whatsapp.com/HhUvmYJGL0QCdaxYbMsbrz?s=cl&p=a&mlu=4" target="_blank" class="text-xs font-bold text-emerald-300 transition hover:text-emerald-200">
+              Belum terhubung dengan komunitas? Gabung WAG Anggota Baru →
+            </a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500">
+    <div>© 2026 TDA Entrepreneur Community Jakarta Selatan</div>
+  </footer>
+
+  <script>
+    // Slider Logic
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i].classList.replace('bg-amber-400', 'bg-slate-600');
+      });
+      slides[index].classList.add('active');
+      dots[index].classList.replace('bg-slate-600', 'bg-amber-400');
+    }
+
+    function currentSlide(index) {
+      currentSlideIndex = index;
+      showSlide(currentSlideIndex);
+    }
+
+    setInterval(() => {
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      showSlide(currentSlideIndex);
+    }, 5000);
+
+    // ==========================================
+    // LOGIKA CHAT AI (MENGGUNAKAN NETLIFY FUNCTIONS)
+    // ==========================================
+    const AI_CHAT_URL = "/.netlify/functions/chat";
+    const SHEETS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzME74iED9pf5rC__4wRTgVPgX_3wDOazvV-VQX1DqjYCERCWtH3QkHIrngN_WIF-Zg/exec";
+    const WAG_URL = "https://chat.whatsapp.com/HhUvmYJGL0QCdaxYbMsbrz?s=cl&p=a&mlu=4";
+
+    const chatContainer = document.getElementById("chatContainer");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatSendBtn = document.getElementById("chatSendBtn");
+    const clearChatBtn = document.getElementById("clearChatBtn");
+
+    function appendMessage(sender, text) {
+      const isAi = sender === "ai";
+      const wrapper = document.createElement("div");
+      wrapper.className = `flex items-start gap-3 ${isAi ? "" : "flex-row-reverse"}`;
+
+      const avatar = document.createElement("div");
+      avatar.className = `grid h-8 w-8 shrink-0 place-items-center rounded-full font-bold text-xs ${isAi ? "bg-amber-400 text-slate-950" : "bg-sky-500 text-slate-950"}`;
+      avatar.textContent = isAi ? "AI" : "Anda";
+
+      const bubble = document.createElement("div");
+      bubble.className = `rounded-2xl p-4 max-w-[85%] text-slate-200 whitespace-pre-wrap ${isAi ? "bg-slate-900 border border-slate-800" : "bg-amber-400/10 border border-amber-400/20 text-amber-100"}`;
+      bubble.textContent = text;
+
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(bubble);
+      chatContainer.appendChild(wrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    clearChatBtn.addEventListener("click", () => {
+      chatContainer.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-amber-400 text-slate-950 font-bold text-xs">AI</div>
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 text-slate-200 max-w-[85%]">
+            Riwayat dibersihkan. Ada hal lain yang ingin ditanyakan seputar TDA Trainer Jakarta Selatan?
+          </div>
+        </div>
+      `;
+    });
+
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = chatInput.value.trim();
+      if (!question) return;
+
+      appendMessage("user", question);
+      chatInput.value = "";
+      chatSendBtn.disabled = true;
+
+      const loadingId = "loading-" + Date.now();
+      const loadingWrapper = document.createElement("div");
+      loadingWrapper.id = loadingId;
+      loadingWrapper.className = "flex items-start gap-3";
+      loadingWrapper.innerHTML = `
+        <div class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-amber-400 text-slate-950 font-bold text-xs">AI</div>
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-4 text-slate-400 animate-pulse">
+          Sedang mengetik jawaban...
+        </div>
+      `;
+      chatContainer.appendChild(loadingWrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      try {
+        const response = await fetch(AI_CHAT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: question })
+        });
+
+        const data = await response.json();
+        document.getElementById(loadingId)?.remove();
+
+        if (data.status === "error") {
+          throw new Error(data.message || "Gagal mendapatkan respons AI.");
+        }
+
+        appendMessage("ai", data.answer || "Maaf, respons kosong.");
+      } catch (error) {
+        document.getElementById(loadingId)?.remove();
+        console.error(error);
+        appendMessage("ai", "Maaf, terjadi kendala saat menghubungkan ke fungsi server AI.");
+      } finally {
+        chatSendBtn.disabled = false;
+        chatInput.focus();
+      }
+    });
+
+    // ==========================================
+    // LOGIKA PENDAFTARAN & GOOGLE SHEETS
+    // ==========================================
+    const form = document.getElementById("trainerForm");
+    const fileInput = document.getElementById("cv");
+    const msgBox = document.getElementById("formMessage");
+
+    function showFormMsg(text, success = false) {
+      msgBox.textContent = text;
+      msgBox.className = "rounded-xl border px-4 py-3 text-sm " + (success ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" : "border-rose-500/30 bg-rose-500/10 text-rose-300");
+      msgBox.classList.remove("hidden");
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      msgBox.classList.add("hidden");
+
+      const file = fileInput.files?.[0];
+      if (!file) {
+        showFormMsg("Harap unggah file CV (PDF).");
+        return;
+      }
+
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = "Mengirim pendaftaran & CV...";
+
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = async function () {
+        const payload = {
+          action: "registration",
+          nama: document.getElementById("nama").value.trim(),
+          nowa: document.getElementById("nowa").value.trim(),
+          statusTda: document.getElementById("statusTda").value,
+          materi: document.getElementById("materi").value,
+          topik: document.getElementById("topik").value.trim(),
+          fileName: file.name,
+          fileType: file.type,
+          fileData: reader.result.split(',')[1]
+        };
+
+        try {
+          await fetch(SHEETS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+
+          showFormMsg("Pendaftaran berhasil tersimpan! Mengarahkan ke WhatsApp...", true);
+          setTimeout(() => {
+            window.open(WAG_URL, "_blank");
+            form.reset();
+            btn.disabled = false;
+            btn.textContent = "Kirim Pendaftaran & Simpan ke Sheets →";
+          }, 2000);
+        } catch (err) {
+          console.error(err);
+          showFormMsg("Terjadi kesalahan koneksi saat mengirim data pendaftaran.");
+          btn.disabled = false;
+          btn.textContent = "Kirim Pendaftaran & Simpan ke Sheets →";
+        }
+      };
+    });
+  </script>
+</body>
+</html>
