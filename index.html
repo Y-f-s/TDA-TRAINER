@@ -285,7 +285,12 @@
                 <option selected>Kewirausahaan & Strategi Bisnis</option>
                 <option>Digital Marketing & Sales</option>
                 <option>Teknologi, AI & Digitalisasi</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
+              <div id="materiLainnyaWrapper" class="mt-3 hidden">
+                <label for="materiLainnya" class="mb-2 block text-xs font-semibold text-slate-400">Tuliskan bidang keahlian lainnya *</label>
+                <input id="materiLainnya" name="materiLainnya" type="text" autocomplete="off" placeholder="Contoh: Keuangan & Perpajakan" class="focus-ring w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3.5 text-sm text-white placeholder:text-slate-600" />
+              </div>
             </div>
           </div>
 
@@ -441,6 +446,21 @@
     const form = document.getElementById("trainerForm");
     const fileInput = document.getElementById("cv");
     const msgBox = document.getElementById("formMessage");
+    const materiSelect = document.getElementById("materi");
+    const materiLainnyaWrapper = document.getElementById("materiLainnyaWrapper");
+    const materiLainnyaInput = document.getElementById("materiLainnya");
+
+    function syncMateriLainnya() {
+      const isLainnya = materiSelect.value === "Lainnya";
+      materiLainnyaWrapper.classList.toggle("hidden", !isLainnya);
+      materiLainnyaInput.required = isLainnya;
+
+      if (!isLainnya) {
+        materiLainnyaInput.value = "";
+      }
+    }
+
+    materiSelect.addEventListener("change", syncMateriLainnya);
 
     function showFormMsg(text, success = false) {
       msgBox.textContent = text;
@@ -451,6 +471,13 @@
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       msgBox.classList.add("hidden");
+
+      const materiLainnya = materiLainnyaInput.value.trim();
+      if (materiSelect.value === "Lainnya" && !materiLainnya) {
+        showFormMsg("Harap tuliskan bidang keahlian lainnya.");
+        materiLainnyaInput.focus();
+        return;
+      }
 
       const file = fileInput.files?.[0];
       if (!file) {
@@ -470,7 +497,7 @@
           nama: document.getElementById("nama").value.trim(),
           nowa: document.getElementById("nowa").value.trim(),
           statusTda: document.getElementById("statusTda").value,
-          materi: document.getElementById("materi").value,
+          materi: materiSelect.value === "Lainnya" ? `Lainnya: ${materiLainnya}` : materiSelect.value,
           topik: document.getElementById("topik").value.trim(),
           fileName: file.name,
           fileType: file.type,
@@ -489,6 +516,7 @@
           setTimeout(() => {
             window.open(WAG_URL, "_blank");
             form.reset();
+            syncMateriLainnya();
             btn.disabled = false;
             btn.textContent = "Kirim Pendaftaran TDA Trainer →";
           }, 2000);
