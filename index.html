@@ -303,7 +303,7 @@
           <div id="formMessage" class="hidden rounded-xl border px-4 py-3 text-sm"></div>
 
           <button type="submit" class="w-full rounded-2xl bg-amber-400 py-4 text-sm font-extrabold text-slate-950 shadow-xl shadow-amber-400/15 transition hover:bg-amber-300">
-            Kirim Pendaftaran & Simpan ke Sheets →
+            Kirim Pendaftaran TDA Trainer →
           </button>
 
           <div class="text-center pt-2">
@@ -490,13 +490,13 @@
             window.open(WAG_URL, "_blank");
             form.reset();
             btn.disabled = false;
-            btn.textContent = "Kirim Pendaftaran & Simpan ke Sheets →";
+            btn.textContent = "Kirim Pendaftaran TDA Trainer →";
           }, 2000);
         } catch (err) {
           console.error(err);
           showFormMsg("Terjadi kesalahan koneksi saat mengirim data pendaftaran.");
           btn.disabled = false;
-          btn.textContent = "Kirim Pendaftaran & Simpan ke Sheets →";
+          btn.textContent = "Kirim Pendaftaran TDA Trainer →";
         }
       };
     });
