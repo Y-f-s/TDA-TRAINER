@@ -351,7 +351,7 @@
     }, 5000);
 
     // ==========================================
-    // LOGIKA CHAT AI (MENGGUNAKAN NETLIFY FUNCTIONS)
+    // LOGIKA CHAT AI (NETLIFY FUNCTION MEM-PROXY REQUEST KE VPS)
     // ==========================================
     const AI_CHAT_URL = "/.netlify/functions/chat";
     const SHEETS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzME74iED9pf5rC__4wRTgVPgX_3wDOazvV-VQX1DqjYCERCWtH3QkHIrngN_WIF-Zg/exec";
@@ -433,7 +433,7 @@
       } catch (error) {
         document.getElementById(loadingId)?.remove();
         console.error(error);
-        appendMessage("ai", "Maaf, terjadi kendala saat menghubungkan ke fungsi server AI.");
+        appendMessage("ai", "Maaf, server AI sedang tidak dapat dihubungi. Silakan coba lagi beberapa saat.");
       } finally {
         chatSendBtn.disabled = false;
         chatInput.focus();

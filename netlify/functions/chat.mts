@@ -1,11 +1,16 @@
 import type { Config } from '@netlify/functions'
 
-const SYSTEM_PROMPT =
-  'Anda adalah asisten publik TDA Trainer Jakarta Selatan yang ramah, profesional, dan informatif. Jawab dalam Bahasa Indonesia.'
-
 interface ChatRequest {
   prompt?: unknown
 }
+
+interface VpsChatResponse {
+  status?: unknown
+  answer?: unknown
+  message?: unknown
+}
+
+const DEFAULT_VPS_CHAT_URL = 'http://116.212.73.71:8000/chat'
 
 export default async (req: Request) => {
   if (req.method !== 'POST') {
@@ -33,61 +38,49 @@ export default async (req: Request) => {
     )
   }
 
-  const apiKey = Netlify.env.get('NETLIFY_AI_GATEWAY_KEY')
-  const baseUrl = (Netlify.env.get('NETLIFY_AI_GATEWAY_BASE_URL') || '').replace(/\/+$/, '')
-
-  if (!apiKey || !baseUrl) {
-    return Response.json(
-      { status: 'error', message: 'AI Gateway belum aktif untuk situs ini.' },
-      { status: 500 },
-    )
-  }
-
-  const body = JSON.stringify({
-    model: 'gpt-5.2',
-    messages: [
-      { role: 'system', content: SYSTEM_PROMPT },
-      { role: 'user', content: prompt },
-    ],
-    max_completion_tokens: 2048,
-  })
+  const vpsChatUrl = Netlify.env.get('VPS_CHAT_URL') || DEFAULT_VPS_CHAT_URL
 
   try {
-    let response = await fetch(`${baseUrl}/v1/chat/completions`, {
+    const response = await fetch(vpsChatUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt }),
+      signal: AbortSignal.timeout(30_000),
     })
 
-    if (response.status === 404) {
-      response = await fetch(`${baseUrl}/openai/v1/chat/completions`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body,
-      })
+    const responseText = await response.text()
+    let data: VpsChatResponse
+
+    try {
+      data = JSON.parse(responseText) as VpsChatResponse
+    } catch {
+      throw new Error('VPS mengirim respons yang tidak valid.')
     }
 
-    const resData = await response.json()
+    if (!response.ok || data.status === 'error') {
+      const message = typeof data.message === 'string'
+        ? data.message
+        : `VPS merespons dengan status ${response.status}.`
 
-    if (!response.ok || resData.error) {
-      throw new Error(resData?.error?.message || 'Gagal mendapatkan respons dari AI Gateway.')
+      throw new Error(message)
     }
 
-    const answer = resData.choices?.[0]?.message?.content || 'Maaf, respons kosong.'
+    if (typeof data.answer !== 'string' || !data.answer.trim()) {
+      throw new Error('VPS tidak mengirim jawaban AI.')
+    }
 
-    return Response.json({ status: 'success', answer })
+    return Response.json({ status: 'success', answer: data.answer })
   } catch (error) {
-    return Response.json(
-      { status: 'error', message: error instanceof Error ? error.message : String(error) },
-      { status: 500 },
-    )
+    const message = error instanceof Error && error.name === 'TimeoutError'
+      ? 'Server AI VPS tidak merespons dalam 30 detik.'
+      : error instanceof Error
+        ? error.message
+        : String(error)
+
+    return Response.json({ status: 'error', message }, { status: 502 })
   }
 }
 
-export const config: Config = {}
+export const config: Config = {
+  method: 'POST',
+}
