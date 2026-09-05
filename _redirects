@@ -1,1 +1,10 @@
 /.netlify/functions/chat  http://116.212.73.71:8000/chat-tda  200!
+```[cite: 5]
+
+### Cara Kerjanya:
+#1. Pengunjung mengetik chat di web Netlify (`https://...`).
+#2. Browser mengirim data dengan aman ke `/.netlify/functions/chat` (karena sama-sama HTTPS).
+#3. Netlify meneruskannya di balik layar ke VPS Anda (`[http://116.212.73.71:8000/chat-tda](http://116.212.73.71:8000/chat-tda)`).
+#4. Ollama di VPS memproses, lalu hasilnya dikembalikan lewat jalur yang sama ke browser pengguna. 
+
+#Silakan perbarui kode `index.html` dan pastikan file `_redirects`-nya terunggah dengan benar ke Netlify, lalu coba kirim pesan lagi!
